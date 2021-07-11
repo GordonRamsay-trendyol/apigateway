@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 public class ApigatewayApplication {
     private static final String USER_SERVER_URI = "http://localhost:8889";
     private static final String PRODUCT_SERVER_URI = "http://localhost:8888";
+    private static final String USER_FOLLOWS_PRODUCT_SERVER_URI = "http://localhost:8887";
 
     public static void main(String[] args) {
         SpringApplication.run(ApigatewayApplication.class, args);
@@ -20,6 +21,7 @@ public class ApigatewayApplication {
         return builder.routes()
                 .route("user", r -> r.path("/api/users").filters(f -> f.stripPrefix(1)).uri(USER_SERVER_URI))
                 .route("product", r -> r.path("/api/products").filters(f -> f.stripPrefix(1)).uri(PRODUCT_SERVER_URI))
+                .route("userfollowsproduct", r -> r.path("/api/userfollowsproduct").filters(f -> f.stripPrefix(1)).uri(USER_FOLLOWS_PRODUCT_SERVER_URI))
                 .build();
     }
 }
