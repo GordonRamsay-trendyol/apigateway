@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  apigw:
+    build:
+      context: .
+    restart: always
+    ports:
+      - 8881:8881
