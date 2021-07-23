@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class ApigatewayApplication {
-    private static final String USER_SERVER_URI = "http://user-ms:8889";
+    private static final String USER_SERVER_URI = "http://user-ms:8882";
     private static final String PRODUCT_SERVER_URI = "http://product-ms:8888";
     private static final String USER_FOLLOWS_PRODUCT_SERVER_URI = "http://user-follows-product-ms:8887";
 
