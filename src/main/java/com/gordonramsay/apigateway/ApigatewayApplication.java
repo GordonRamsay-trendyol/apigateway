@@ -19,9 +19,9 @@ public class ApigatewayApplication {
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("user", r -> r.path("/users").uri(USER_SERVER_URI))
-                .route("product", r -> r.path("/products").uri(PRODUCT_SERVER_URI))
-                .route("user-follows-product", r -> r.path("/user-follows-product").uri(USER_FOLLOWS_PRODUCT_SERVER_URI))
+                .route("user", r -> r.path("/api/users/**").filters(f -> f.stripPrefix(1)).uri(USER_SERVER_URI))
+                .route("product", r -> r.order(5).path("/api/products/**").filters(f -> f.stripPrefix(1)).uri(PRODUCT_SERVER_URI))
+                .route("user-follows-product", r -> r.order(1).path("/api/product/subscription/**").filters(f -> f.stripPrefix(1)).uri(USER_FOLLOWS_PRODUCT_SERVER_URI))
                 .build();
     }
 }
